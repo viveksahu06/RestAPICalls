@@ -7,10 +7,8 @@
 //        - curl localhost:8080/hello -w "\n"
 package com.resiapi.restapicall.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.resiapi.restapicall.userdto.UserDto;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -29,5 +27,9 @@ public class UserController {
     @GetMapping("/hello/param/{name}")
     public String sayHelloByName(@PathVariable String name){
         return "Hello " + name + " from BridgeLabz";
+    }
+    @PostMapping("/hello/post")
+    public String sayHello(@RequestBody UserDto user) {
+        return "Hello " + user.getFirstName() + " " + user.getSecondName() + " from BridgeLabz";
     }
 }
