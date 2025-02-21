@@ -32,4 +32,8 @@ public class UserController {
     public String sayHello(@RequestBody UserDto user) {
         return "Hello " + user.getFirstName() + " " + user.getSecondName() + " from BridgeLabz";
     }
+    @PutMapping("/hello/put/{firstName}/")
+    public String updateGreeting(@PathVariable String firstName, @RequestParam String lastName) {
+        return "Hello " + firstName + " "  + lastName + " from BridgeLabz";
+    }
 }
